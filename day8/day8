@@ -1,0 +1,30 @@
+listharga = {
+    "sate" : 15000,
+    "ayam_bakar" : 12000,
+    "kopi" : 5000
+}
+subtotal = {"sate": 0, "ayam_bakar": 0, "kopi": 0}
+barang_yg_dibeli = []
+while True :
+    nama_barang = input("Masukkan nama barang: ")
+    if nama_barang == 'end':
+        break
+
+    if nama_barang in listharga:
+        jumlah_barang = int(input("Masukkan jumlah barang: "))
+        harga_barang = listharga[nama_barang]
+        subtotal[nama_barang] += harga_barang * jumlah_barang
+        barang_yg_dibeli.append((nama_barang, harga_barang, jumlah_barang))
+total = sum(subtotal.values())
+
+file = open('invoice.txt', 'w')
+file.write('--------RICIAN--------\n')
+for barang, harga, jumlah, in barang_yg_dibeli:
+    file.write(f"{barang} : Rp{harga} x {jumlah}pcs\n")
+file.write('----------------------\n')
+for barang, sub in subtotal.items():
+    file.write(f"Subtotal {barang} : Rp{sub}\n")
+file.write(f"Total : Rp {total}\n")
+file.close()
+tampil_file = open('invoice.txt', 'r')
+print(tampil_file.read())
