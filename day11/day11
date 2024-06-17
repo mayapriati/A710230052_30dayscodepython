@@ -1,0 +1,17 @@
+def main():
+    print("selamat datang di toko kelontong")
+    jumlah_pesanan = int(input("masukkan jumlah pesanan: "))
+    total_harga = 0
+
+    for i in range (1, jumlah_pesanan +1):
+        print(f"Barang {i}")
+        nama_barang = input("nama barang: ")
+        harga_barang = int(input("harga barang: "))
+        jumlah_barang = int(input("jumlah barang: "))
+
+        total_barang = harga_barang * jumlah_barang
+        total_harga += total_barang
+
+        print(f"total {total_barang}\n")
+    print(f"nota keseluruhan adalah {total_harga}")
+main()
